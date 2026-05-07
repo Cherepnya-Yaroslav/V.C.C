@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { ActionButton } from "@/components/ui/action-button";
@@ -15,6 +16,28 @@ const transmissionLines = [
 
 export function EntranceScene() {
   const reducedMotion = useReducedMotion();
+  const [showPrelude, setShowPrelude] = useState(false);
+
+  useEffect(() => {
+    if (reducedMotion) {
+      return;
+    }
+
+    if (sessionStorage.getItem("vcc-prelude-seen") === "1") {
+      return;
+    }
+
+    sessionStorage.setItem("vcc-prelude-seen", "1");
+    setShowPrelude(true);
+
+    const timeout = window.setTimeout(() => {
+      setShowPrelude(false);
+    }, 1450);
+
+    return () => {
+      window.clearTimeout(timeout);
+    };
+  }, [reducedMotion]);
 
   const fadeUp = {
     initial: { opacity: 0, y: reducedMotion ? 0 : 24 },
@@ -23,6 +46,36 @@ export function EntranceScene() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-obsidian text-ivory">
+      {showPrelude ? (
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-[radial-gradient(circle_at_top,rgba(124,255,178,0.08),transparent_28%),linear-gradient(180deg,#070707_0%,#030303_100%)] px-6"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full max-w-md text-center"
+          >
+            <p className="font-mono text-[0.72rem] uppercase tracking-[0.38em] text-signal/82">
+              loading sequence
+            </p>
+            <h2 className="mt-5 font-display text-[clamp(4.2rem,22vw,8rem)] uppercase leading-none tracking-[0.22em] text-white">
+              V.C.C
+            </h2>
+            <div className="mx-auto mt-8 h-px w-full overflow-hidden bg-white/10">
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0.6 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+                className="h-full origin-left bg-signal"
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      ) : null}
       <section className="relative isolate flex min-h-screen flex-col justify-between overflow-hidden px-5 py-5 sm:px-8 sm:py-8 lg:px-10">
       <div className="screen-grid pointer-events-none absolute inset-0 opacity-35" />
       <div className="scanlines pointer-events-none absolute inset-0 opacity-25" />
