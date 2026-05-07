@@ -28,18 +28,18 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: "Product Not Found",
+      title: "V.C.C",
     };
   }
 
   return {
-    title: product.title,
+    title: "V.C.C",
     description: product.description,
     alternates: {
       canonical: absoluteUrl(`/product/${product.slug}`),
     },
     openGraph: {
-      title: `${product.title} | V.C.C`,
+      title: "V.C.C",
       description: product.description,
       url: absoluteUrl(`/product/${product.slug}`),
     },

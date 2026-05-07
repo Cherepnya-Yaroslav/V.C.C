@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "V.C.C",
-  title: "V.C.C | Curated Underground Fashion Experience",
+  title: "V.C.C",
   description:
     "V.C.C is a cinematic digital fashion experience built around dark minimalism, editorial streetwear, and underground atmosphere.",
-  url: "https://vcc.example",
+  url: "https://viborgclub.fun",
   locale: "en_US",
   keywords: [
     "V.C.C",
