@@ -1,22 +1,29 @@
 "use client";
 
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { getRouteScene } from "@/lib/route-scene";
+
+let hasSeenInitialPage = false;
 
 export function RouteTransition({ children }: PropsWithChildren) {
   const pathname = usePathname();
   const reducedMotion = useReducedMotion();
   const scene = getRouteScene(pathname);
   const isProductRoute = pathname.startsWith("/product/");
+  const skipTransition = !hasSeenInitialPage;
   const veilDuration = isProductRoute ? 2 : 2;
   const overlayFadeDelay = isProductRoute ? 2 : 2;
   const overlayFadeDuration = isProductRoute ? 0.62 : 0.5;
   const contentRevealDelay = isProductRoute ? 2 : 2;
 
-  if (reducedMotion) {
+  useEffect(() => {
+    hasSeenInitialPage = true;
+  }, []);
+
+  if (reducedMotion || skipTransition) {
     return <>{children}</>;
   }
 

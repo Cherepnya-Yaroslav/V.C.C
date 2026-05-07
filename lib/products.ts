@@ -2,7 +2,7 @@ import type { Product } from "@/types/product";
 
 const livePhotoMain = {
   id: "nesu-dvoyku-photo-main",
-  url: "/images/image.png",
+  url: "/images/image.webp",
   alt: "Футболка Несу двойку",
   width: 890,
   height: 664,
@@ -10,7 +10,7 @@ const livePhotoMain = {
 
 const livePhotoDetailOne = {
   id: "nesu-dvoyku-photo-detail-1",
-  url: "/images/image1.png",
+  url: "/images/image1.webp",
   alt: "Футболка Несу двойку, дополнительный ракурс",
   width: 810,
   height: 696,
@@ -18,7 +18,7 @@ const livePhotoDetailOne = {
 
 const livePhotoDetailTwo = {
   id: "nesu-dvoyku-photo-detail-2",
-  url: "/images/image2.png",
+  url: "/images/image2.webp",
   alt: "Футболка Несу двойку, детальный кадр",
   width: 1626,
   height: 696,
@@ -26,7 +26,7 @@ const livePhotoDetailTwo = {
 
 const tbaPhotoOne = {
   id: "tba-photo-1",
-  url: "/images/tba1.png",
+  url: "/images/tba1.webp",
   alt: "Закрытый анонс товара",
   width: 618,
   height: 446,
@@ -34,7 +34,7 @@ const tbaPhotoOne = {
 
 const tbaPhotoTwo = {
   id: "tba-photo-2",
-  url: "/images/tba2.png",
+  url: "/images/tba2.webp",
   alt: "Закрытый анонс товара",
   width: 658,
   height: 436,

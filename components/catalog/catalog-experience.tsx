@@ -73,7 +73,7 @@ export function CatalogExperience({ products }: CatalogExperienceProps) {
                 key={product.id}
                 product={product}
                 reducedMotion={Boolean(reducedMotion)}
-                priority={index < 2}
+                priority={index === 0}
               />
             ))}
           </div>
