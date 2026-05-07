@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import { formatProductTitle } from "@/lib/format-product-title";
 import type { Product } from "@/types/product";
 import { formatPrice } from "@/services/products";
 
@@ -19,6 +20,7 @@ export function ProductCard({
   priority = false,
 }: ProductCardProps) {
   const isAvailable = product.available !== false;
+  const displayTitle = formatProductTitle(product.title);
 
   const content = (
     <>
@@ -34,33 +36,24 @@ export function ProductCard({
           }`}
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.16)_44%,rgba(0,0,0,0.86)_100%)]" />
-        <div
-          className={`absolute inset-x-[14%] top-[10%] h-[56%] rounded-[46%_46%_36%_36%/20%_20%_62%_62%] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.01))] opacity-70 transition-transform duration-700 ${
-            isAvailable ? "group-hover:-translate-y-1" : ""
-          }`}
-        />
         {!isAvailable && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/28 backdrop-blur-[2px]">
+          <div className="absolute inset-0 overflow-hidden rounded-[1.2rem] flex items-center justify-center bg-black/28 backdrop-blur-[2px]">
             <span className="rounded-full border border-white/15 bg-black/35 px-4 py-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-white/72">
               To be announced
             </span>
           </div>
         )}
         <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-          <div className="flex items-center justify-between gap-3">
-            <p className="font-mono text-[0.62rem] uppercase tracking-signal text-white/38">
-              {isAvailable ? "Product Object" : "Closed slot"}
-            </p>
-            <p className="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-white/70">
-              {isAvailable ? `${formatPrice(product.price)} ₽` : "TBA"}
-            </p>
-          </div>
           <h3 className="text-balance mt-3 max-w-[14rem] font-display text-[2rem] uppercase leading-[0.9] tracking-[0.12em] text-white sm:text-[2.8rem] sm:tracking-[0.14em]">
-            {product.title}
+            {displayTitle}
           </h3>
         </div>
       </div>
-      <p className="mt-4 max-w-md text-sm leading-6 text-white/58">{product.description}</p>
+      <div className="mt-4 flex items-center justify-between gap-3">
+        <p className="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-white/70">
+          {isAvailable ? `${formatPrice(product.price)} ₽` : "TBA"}
+        </p>
+      </div>
     </>
   );
 

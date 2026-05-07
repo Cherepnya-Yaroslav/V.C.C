@@ -1,32 +1,64 @@
 import type { Product } from "@/types/product";
 
-const livePhoto = {
-  id: "nesu-dvoyku-photo",
+const livePhotoMain = {
+  id: "nesu-dvoyku-photo-main",
   url: "/images/image.png",
-  alt: 'Футболка "Несу двойку"',
+  alt: "Футболка Несу двойку",
   width: 890,
   height: 664,
+};
+
+const livePhotoDetailOne = {
+  id: "nesu-dvoyku-photo-detail-1",
+  url: "/images/image1.png",
+  alt: "Футболка Несу двойку, дополнительный ракурс",
+  width: 810,
+  height: 696,
+};
+
+const livePhotoDetailTwo = {
+  id: "nesu-dvoyku-photo-detail-2",
+  url: "/images/image2.png",
+  alt: "Футболка Несу двойку, детальный кадр",
+  width: 1626,
+  height: 696,
+};
+
+const tbaPhotoOne = {
+  id: "tba-photo-1",
+  url: "/images/tba1.png",
+  alt: "Закрытый анонс товара",
+  width: 618,
+  height: 446,
+};
+
+const tbaPhotoTwo = {
+  id: "tba-photo-2",
+  url: "/images/tba2.png",
+  alt: "Закрытый анонс товара",
+  width: 658,
+  height: 436,
 };
 
 export const products: Product[] = [
   {
     id: "product-001",
     slug: "nesu-dvoyku-tee",
-    title: 'Футболка "Несу двойку"',
+    title: "Футболка Несу двойку",
     description:
       "Плотная черная футболка с прямой посадкой и уличным характером. Вещь выглядит просто на первом взгляде, но работает именно как жест: будто школьная ошибка превращена в уверенную форму и собственный код.",
     price: 1999,
     photos: [
       {
-        ...livePhoto,
+        ...livePhotoMain,
         id: "nesu-dvoyku-main",
       },
       {
-        ...livePhoto,
+        ...livePhotoDetailOne,
         id: "nesu-dvoyku-detail-1",
       },
       {
-        ...livePhoto,
+        ...livePhotoDetailTwo,
         id: "nesu-dvoyku-detail-2",
       },
     ],
@@ -40,15 +72,15 @@ export const products: Product[] = [
     price: 0,
     photos: [
       {
-        ...livePhoto,
+        ...tbaPhotoOne,
         id: "to-be-announced-001-main",
       },
       {
-        ...livePhoto,
+        ...tbaPhotoOne,
         id: "to-be-announced-001-detail-1",
       },
       {
-        ...livePhoto,
+        ...tbaPhotoOne,
         id: "to-be-announced-001-detail-2",
       },
     ],
@@ -63,15 +95,15 @@ export const products: Product[] = [
     price: 0,
     photos: [
       {
-        ...livePhoto,
+        ...tbaPhotoTwo,
         id: "to-be-announced-002-main",
       },
       {
-        ...livePhoto,
+        ...tbaPhotoTwo,
         id: "to-be-announced-002-detail-1",
       },
       {
-        ...livePhoto,
+        ...tbaPhotoTwo,
         id: "to-be-announced-002-detail-2",
       },
     ],

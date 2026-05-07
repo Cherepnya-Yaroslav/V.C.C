@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { PageShell } from "@/components/layout/page-shell";
+import { formatProductTitle } from "@/lib/format-product-title";
 import { SceneIndicator } from "@/components/shared/scene-indicator";
 import { TransmissionBand } from "@/components/shared/transmission-band";
 import { formatPrice } from "@/services/products";
@@ -17,6 +18,7 @@ type ProductStoryProps = {
 export function ProductStory({ product }: ProductStoryProps) {
   const reducedMotion = useReducedMotion();
   const [heroPhoto, ...detailPhotos] = product.photos;
+  const displayTitle = formatProductTitle(product.title);
 
   return (
     <PageShell>
@@ -32,7 +34,7 @@ export function ProductStory({ product }: ProductStoryProps) {
             Back to catalog
           </Link>
           <h1 className="text-balance mt-5 font-display text-[clamp(3.2rem,14vw,8rem)] uppercase leading-[0.86] tracking-[0.12em] text-white sm:tracking-[0.16em]">
-            {product.title}
+            {displayTitle}
           </h1>
         </div>
         <div className="hidden text-right sm:block">
@@ -115,9 +117,6 @@ export function ProductStory({ product }: ProductStoryProps) {
             <p className="mt-4 font-display text-[clamp(2.4rem,7vw,4.1rem)] uppercase leading-[0.9] tracking-[0.12em] text-white">
               {formatPrice(product.price)} ₽
             </p>
-            <p className="mt-4 text-sm leading-6 text-white/52">
-              No checkout flow, no contact prompt, no order mechanics. The page exists only as a visual product study.
-            </p>
           </article>
         </motion.aside>
       </section>
@@ -125,7 +124,7 @@ export function ProductStory({ product }: ProductStoryProps) {
       <section className="px-5 pb-5 pt-1 sm:px-7 sm:pb-7">
         <TransmissionBand
           items={[
-            product.title,
+            displayTitle,
             "Image-first product page",
             "No recommendations",
             "No order UI",

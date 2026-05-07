@@ -1,3 +1,6 @@
+import { formatProductTitle } from "@/lib/format-product-title";
+import { products } from "@/lib/products";
+
 export type RouteScene = {
   index: string;
   label: string;
@@ -8,30 +11,33 @@ export function getRouteScene(pathname: string): RouteScene {
   if (pathname === "/") {
     return {
       index: "01",
-      label: "Entrance signal",
-      note: "Threshold composition active",
+      label: "Вход в архив",
+      note: "Тихий старт перед первым кадром",
     };
   }
 
   if (pathname === "/catalog") {
     return {
       index: "02",
-      label: "Catalog field",
-      note: "Cast objects drifting in sequence",
+      label: "Поле вещей",
+      note: "Свои силуэты собираются в один ряд",
     };
   }
 
   if (pathname.startsWith("/product/")) {
+    const slug = pathname.replace("/product/", "");
+    const product = products.find((item) => item.slug === slug);
+
     return {
       index: "03",
-      label: "Object study",
-      note: "Silhouette, surface, and residual tension",
+      label: product ? formatProductTitle(product.title) : "Object study",
+      note: "Вещь выходит на первый план",
     };
   }
 
   return {
     index: "00",
-    label: "Lost channel",
-    note: "Signal rerouted through static",
+    label: "Потерянный сигнал",
+    note: "Канал ушел в шум",
   };
 }

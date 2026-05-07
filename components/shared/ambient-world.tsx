@@ -48,21 +48,6 @@ export function AmbientWorld() {
     <>
       <div aria-hidden="true" className="ambient-vignette pointer-events-none fixed inset-0 z-[1]" />
       <div aria-hidden="true" className="ambient-pointer pointer-events-none fixed inset-0 z-[1]" />
-
-      <motion.aside
-        initial={reducedMotion ? undefined : { opacity: 0, y: 10 }}
-        animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none fixed bottom-3 left-3 z-[2] hidden max-w-[16rem] rounded-[1.2rem] border border-white/10 bg-black/25 px-4 py-3 backdrop-blur-md md:block"
-      >
-        <p className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-signal/78">
-          World / {state.index}
-        </p>
-        <p className="mt-2 font-display text-[1.6rem] uppercase leading-[0.92] tracking-[0.12em] text-white">
-          {state.label}
-        </p>
-        <p className="mt-2 text-xs leading-5 text-white/42">{state.note}</p>
-      </motion.aside>
     </>
   );
 }
