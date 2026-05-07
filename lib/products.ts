@@ -27,9 +27,17 @@ const livePhotoDetailTwo = {
 const tbaPhotoOne = {
   id: "tba-photo-1",
   url: "/images/tba1.webp",
-  alt: "Закрытый анонс товара",
+  alt: "Футболка Конь",
   width: 618,
   height: 446,
+};
+
+const tbaPhotoOneDetail = {
+  id: "tba-photo-1-detail",
+  url: "/images/tba1-1.webp",
+  alt: "Футболка Конь, дополнительный ракурс",
+  width: 794,
+  height: 514,
 };
 
 const tbaPhotoTwo = {
@@ -73,26 +81,25 @@ export const products: Product[] = [
   },
   {
     id: "product-002",
-    slug: "to-be-announced-001",
-    title: "To be announced",
+    slug: "kon-tee",
+    title: "Футболка Конь",
     description:
-      "Следующий объект еще не раскрыт. Пока в поле остается только зашумленный силуэт и ощущение будущего дропа.",
-    price: 0,
+      "Темная футболка с прямой подачей и жестким знаком в центре. Конь здесь работает как внутренний символ: вещь не шумит лишним декором, но держит характер, считывается сразу и остается своей в компании, где понимают форму без объяснений.",
+    price: 1999,
     photos: [
       {
         ...tbaPhotoOne,
-        id: "to-be-announced-001-main",
+        id: "kon-main",
       },
       {
         ...tbaPhotoOne,
-        id: "to-be-announced-001-detail-1",
+        id: "kon-detail-1",
       },
       {
-        ...tbaPhotoOne,
-        id: "to-be-announced-001-detail-2",
+        ...tbaPhotoOneDetail,
+        id: "kon-detail-2",
       },
     ],
-    available: false,
   },
   {
     id: "product-003",
