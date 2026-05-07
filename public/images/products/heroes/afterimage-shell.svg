@@ -1,0 +1,10 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#060708"/>
+  <rect x="92" y="92" width="1016" height="1416" rx="42" stroke="rgba(255,255,255,0.12)"/>
+  <ellipse cx="600" cy="344" rx="170" ry="110" fill="#CFD4DD" fill-opacity="0.2"/>
+  <path d="M410 472H790L864 934H336L410 472Z" fill="#15181C"/>
+  <path d="M505 470H695V1078H505V470Z" fill="#D9DDE3" fill-opacity="0.1"/>
+  <path d="M468 910H732V1252H468V910Z" fill="#111417"/>
+  <path d="M332 930H868" stroke="#7CFFB2" stroke-opacity="0.48" stroke-width="4"/>
+  <text x="110" y="1460" fill="#F2F0EA" fill-opacity="0.76" font-family="Arial, sans-serif" font-size="48" letter-spacing="10">AFTERIMAGE SHELL</text>
+</svg>

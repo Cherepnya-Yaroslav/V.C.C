@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050505;
+  --foreground: #f2f0ea;
+  --signal: #7cffb2;
+  --muted: rgba(242, 240, 234, 0.62);
+  --steel: rgba(242, 240, 234, 0.14);
+  --cursor-x: 50%;
+  --cursor-y: 32%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #050505;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top, rgba(124, 255, 178, 0.08), transparent 26%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05), transparent 22%),
+    linear-gradient(180deg, #090909 0%, #050505 50%, #030303 100%);
+  color: var(--foreground);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(124, 255, 178, 0.3);
+  color: var(--foreground);
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(124, 255, 178, 0.75);
+  outline-offset: 3px;
+}
+
+.screen-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 3.8rem 3.8rem;
+  mask-image: radial-gradient(circle at center, black 52%, transparent 100%);
+}
+
+.scanlines {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 100% 5px;
+  mix-blend-mode: soft-light;
+}
+
+.film-noise {
+  opacity: 0.22;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.13) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px);
+  background-size: 120px 120px, 150px 150px, 180px 180px;
+  mix-blend-mode: soft-light;
+}
+
+.logo-ghost {
+  clip-path: inset(0 0 52% 0);
+  color: rgba(124, 255, 178, 0.5);
+  transform: translate3d(0.045em, -0.02em, 0);
+  animation: ghost-shift 4.6s steps(2, end) infinite;
+}
+
+.logo-echo {
+  clip-path: inset(48% 0 0 0);
+  color: rgba(255, 255, 255, 0.33);
+  transform: translate3d(-0.03em, 0.025em, 0);
+  animation: echo-shift 3.8s steps(2, end) infinite;
+}
+
+.panel-frame::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+}
+
+.campaign-surface {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.campaign-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.02), transparent 32%, rgba(255, 255, 255, 0.05) 64%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, rgba(124, 255, 178, 0.08) 48%, transparent 100%);
+  mix-blend-mode: screen;
+}
+
+.campaign-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 2.8rem 2.8rem;
+  opacity: 0.25;
+}
+
+.ambient-vignette {
+  background:
+    radial-gradient(circle at top, rgba(124, 255, 178, 0.04), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.035), transparent 24%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.22));
+  mix-blend-mode: screen;
+}
+
+.ambient-pointer {
+  background:
+    radial-gradient(circle 14rem at var(--cursor-x) var(--cursor-y), rgba(124, 255, 178, 0.09), transparent 72%),
+    radial-gradient(circle 24rem at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.035), transparent 74%);
+  transition: background-position 160ms ease-out;
+}
+
+.story-divider {
+  position: relative;
+}
+
+.story-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124, 255, 178, 0.35), transparent);
+}
+
+.vertical-caption {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes ghost-shift {
+  0%,
+  100% {
+    transform: translate3d(0.045em, -0.02em, 0);
+    opacity: 0.45;
+  }
+
+  20% {
+    transform: translate3d(-0.03em, 0.04em, 0);
+    opacity: 0.65;
+  }
+
+  40% {
+    transform: translate3d(0.06em, 0.02em, 0);
+    opacity: 0.52;
+  }
+
+  60% {
+    transform: translate3d(-0.015em, -0.025em, 0);
+    opacity: 0.4;
+  }
+
+  80% {
+    transform: translate3d(0.035em, 0.01em, 0);
+    opacity: 0.55;
+  }
+}
+
+@keyframes echo-shift {
+  0%,
+  100% {
+    transform: translate3d(-0.03em, 0.025em, 0);
+    opacity: 0.25;
+  }
+
+  30% {
+    transform: translate3d(0.02em, -0.015em, 0);
+    opacity: 0.42;
+  }
+
+  50% {
+    transform: translate3d(-0.015em, 0.04em, 0);
+    opacity: 0.28;
+  }
+
+  75% {
+    transform: translate3d(0.04em, -0.01em, 0);
+    opacity: 0.36;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .logo-ghost,
+  .logo-echo {
+    animation: none;
+  }
+
+  .ambient-pointer {
+    background:
+      radial-gradient(circle 16rem at 50% 28%, rgba(124, 255, 178, 0.05), transparent 72%),
+      radial-gradient(circle 24rem at 50% 28%, rgba(255, 255, 255, 0.025), transparent 74%);
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .panel-frame::before {
+    inset: 0.75rem;
+  }
+
+  .screen-grid {
+    background-size: 2.7rem 2.7rem;
+  }
+
+  .campaign-surface::after {
+    background-size: 2.1rem 2.1rem;
+    opacity: 0.18;
+  }
+
+  .vertical-caption {
+    writing-mode: horizontal-tb;
+  }
+
+  .ambient-pointer,
+  .ambient-vignette {
+    opacity: 0.85;
+  }
+}

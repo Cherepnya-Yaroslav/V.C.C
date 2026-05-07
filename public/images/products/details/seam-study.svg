@@ -1,0 +1,9 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#070809"/>
+  <rect x="150" y="180" width="900" height="1240" rx="46" fill="#101215"/>
+  <path d="M520 220V1380" stroke="#F2F0EA" stroke-opacity="0.1" stroke-width="12"/>
+  <path d="M552 220V1380" stroke="#7CFFB2" stroke-opacity="0.34" stroke-width="2"/>
+  <path d="M584 220V1380" stroke="#F2F0EA" stroke-opacity="0.08" stroke-width="8"/>
+  <path d="M150 980H1050" stroke="#F2F0EA" stroke-opacity="0.06" stroke-width="6"/>
+  <text x="108" y="1460" fill="#F2F0EA" fill-opacity="0.62" font-family="Arial, sans-serif" font-size="42" letter-spacing="8">SEAM STUDY</text>
+</svg>
