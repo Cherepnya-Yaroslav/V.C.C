@@ -35,9 +35,17 @@ const tbaPhotoOne = {
 const tbaPhotoTwo = {
   id: "tba-photo-2",
   url: "/images/tba2.webp",
-  alt: "Закрытый анонс товара",
+  alt: "Футболка Белый шум",
   width: 658,
   height: 436,
+};
+
+const tbaPhotoTwoDetail = {
+  id: "tba-photo-2-detail",
+  url: "/images/tba2-1.webp",
+  alt: "Футболка Белый шум, дополнительный ракурс",
+  width: 682,
+  height: 550,
 };
 
 export const products: Product[] = [
@@ -88,25 +96,24 @@ export const products: Product[] = [
   },
   {
     id: "product-003",
-    slug: "to-be-announced-002",
-    title: "To be announced",
+    slug: "white-noise-tee",
+    title: "Футболка Белый шум",
     description:
-      "Еще один закрытый слот в подборке. Изображение уже на месте, но сам предмет пока держится в тени.",
-    price: 0,
+      "Светлая футболка с чистым силуэтом и спокойной подачей. Работает не как громкий акцент, а как ровный сигнал внутри своей компании: вещь для тех, кто считывает форму, посадку и настроение без лишних слов.",
+    price: 1999,
     photos: [
       {
         ...tbaPhotoTwo,
-        id: "to-be-announced-002-main",
+        id: "white-noise-main",
       },
       {
         ...tbaPhotoTwo,
-        id: "to-be-announced-002-detail-1",
+        id: "white-noise-detail-1",
       },
       {
-        ...tbaPhotoTwo,
-        id: "to-be-announced-002-detail-2",
+        ...tbaPhotoTwoDetail,
+        id: "white-noise-detail-2",
       },
     ],
-    available: false,
   },
 ];
